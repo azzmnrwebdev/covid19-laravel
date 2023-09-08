@@ -7,14 +7,6 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Project
-
-Final Project UTS Membangun Restfull Api Covid
-
-## Link Documentation
-
-https://drive.google.com/drive/folders/1KHKaNHDSoMQ6zreW1IqQNQyx6l6fo5U8?usp=sharing
-
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
