@@ -1,74 +1,202 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# RESTful API with Laravel Framework and Auth Sanctum
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+build RESTful API with [Laravel Framework](https://laravel.com/) and [Auth Sanctum](https://laravel.com/docs/10.x/sanctum)
 
-## About Project
+## Description
 
-Final Project UTS Membangun Restfull Api Covid
+This project is an implementation of a web service API based on a mini project assignment on campus. This service was built using Laravel Framework version 8 technology and applies the RESTful API concept and authentication using Sanctum.
 
-## Link Documentation
+## Main Feature
 
-https://drive.google.com/drive/folders/1KHKaNHDSoMQ6zreW1IqQNQyx6l6fo5U8?usp=sharing
+- Authentication feature
+- CRUD features (create, read, update, delete)
+- Positive patient data search feature
+- Dead patient data search feature
+- Data search feature for recovered patients
+- Data search feature based on patient name keywords
 
-## About Laravel
+## Tools Used
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- Laravel Framework
+- Laravel Sanctum
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Installation
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Here are the steps to install and run this project:
 
-## Learning Laravel
+1. Clone this repository with
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    HTTPS:
+    ```bash
+    git clone https://github.com/azzmnrwebdev/covid19-laravel.git
+    ```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    SSH:
+    ```bash
+    git clone git@github.com:azzmnrwebdev/covid19-expressjs.git
+    ```
 
-## Laravel Sponsors
+2. Run `composer install` to install all dependencies and packages.
+3. Copy the `.env.example` file and paste the copied file. Rename the pasted file to `.env`.
+4. Edit the required environment configuration in the `.env` file.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    Example:
+    ```bash
+    # Database Configuration
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=covid19-laravel
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-### Premium Partners
+5. Create a database that matches the database name in the environment configuration file.
+6. Run this command `php artisan migrate` for the migration process.
+7. Run `php artisan serve` and enjoy!!
 
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[CMS Max](https://www.cmsmax.com/)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
--   **[Romega Software](https://romegasoftware.com)**
+## API Usage
 
-## Contributing
+1.  Register
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    Request:
+    ```http
+    POST http://127.0.0.1:8000/api/register
 
-## Code of Conduct
+    Body:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    {
+        "name"     : "Administrator",
+        "email"    : "admin@gmail.com",
+        "password" : "admin123"
+    }
+    ```
 
-## Security Vulnerabilities
+2.  Login
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    Request:
+    ```http
+    POST http://127.0.0.1:8000/api/login
 
-## License
+    Body:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    {
+        "email"    : "admin@gmail.com",
+        "password" : "admin123"
+    }
+    ```
+
+3.  Get All Patient
+
+    Headers:
+    | Key | Value | Description |
+    |-----|-------|-------------|
+    | Accept | application/json |  |
+    | Authorization | Bearer `token_login` |  |
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients
+    ```
+
+4. Create Patient
+
+    Headers:
+    | Key | Value | Description |
+    |-----|-------|-------------|
+    | Accept | application/json |  |
+    | Authorization | Bearer `token_login` |  |
+
+    Request:
+    ```http
+    POST http://127.0.0.1:8000/api/patients
+
+    Body:
+
+    {
+        "name" : "Fajar Kurniawan",
+        "phone" : "0812345678953",
+        "address" : "Jakarta Timur",
+        "status" : "positive",
+        "in_date_at" : "2023-04-10"
+    }
+    ```
+    NB: Patient status can be filled with positive values, dead, and recovered. If the patient status is positive then the `out_date_at` key in the JSON data does not need to be filled in.
+
+5. Detail Patient
+
+    Headers:
+    | Key | Value | Description |
+    |-----|-------|-------------|
+    | Accept | application/json |  |
+    | Authorization | Bearer `token_login` |  |
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients/{id}
+    ```
+
+6. Update Patient
+
+    Headers:
+    | Key | Value | Description |
+    |-----|-------|-------------|
+    | Accept | application/json |  |
+    | Authorization | Bearer `token_login` |  |
+
+    Request:
+    ```http
+    PUT http://127.0.0.1:8000/api/patients/{id}
+
+    Body:
+
+    {
+        "status" : "recovered",
+        "out_date_at": "2023-06-25"
+    }
+    ```
+
+7. Get Patient Positive
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients/status/positive
+    ```
+
+8. Get Patient Dead
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients/status/dead
+    ```
+
+10. Get Patient Recovered
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients/status/recovered
+    ```
+
+11. Get Patient By Name
+
+    Request:
+    ```http
+    GET http://127.0.0.1:8000/api/patients/search/{name}
+    ```
+
+12. Delete Patient
+
+    Headers:
+    | Key | Value | Description |
+    |-----|-------|-------------|
+    | Accept | application/json |  |
+    | Authorization | Bearer `token_login` |  |
+
+    Request:
+    ```http
+    DELETE http://127.0.0.1:8000/api/patients/{id}
+    ```
+
+## Documentation Postman
+
+[Documentation Postman](https://documenter.getpostman.com/view/29602079/2s9YBz3vbn#f23dd140-da26-4b5b-9461-e311543b253a)
